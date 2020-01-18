@@ -11,6 +11,11 @@
 <header>
  <h1 align="center">Password Kitchen</h1>
     </header>
+{% if show_alert %}
+<script>
+    alert('Invalid Salt.')
+</script>
+{% endif %}
 <div class="main_container" >
 
     <div id="card_box" >
@@ -42,7 +47,9 @@
         <p class="message_red">It doesn't match :(</p>
         <a href="{{url_for('return_home')}}">Clear Fields</a>
         {% endif %}
-
+        {% if show_alert %}
+        <a href="{{url_for('return_home')}}">Clear Fields</a>
+        {% endif %}
     </div>
 </div>
 </body>
