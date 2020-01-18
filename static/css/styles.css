@@ -78,9 +78,6 @@ button:hover {
     font-size: 40px;
     color: #e53935
 }
-#hash_in {
-    margin-top: 15px;
-}
 a {
     text-decoration: none;
     color:blue;
@@ -92,7 +89,8 @@ a:visited {
     font-family: 'Montserrat';
 }
 
-#hash_in{
+.hash_in{
     border: 2px solid #01579b;
     border-radius: 4px;
+    margin-top: 15px;
 }
