@@ -20,7 +20,7 @@
         <br>
             <button class="btn">Hash It!</button>
         <br>
-        <textarea rows="10" cols="30" name="hash" {% if show_hash %} placeholder={{show_hash}} {% else %} placeholder="hash" {% endif %}  disabled ></textarea>
+        <textarea rows="10" cols="30" name="hash" {% if show_hash %} placeholder={{show_hash}} {% else %} placeholder="hash" {% endif %}  disabled  id="hash_in"></textarea>
         </form>
         {% if show_hash %}
         <a href="{{url_for('return_home')}}">Clear Fields</a>
