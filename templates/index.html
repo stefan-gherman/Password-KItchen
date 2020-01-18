@@ -28,16 +28,21 @@
     </div>
     <div id="card_box" >
     <h1>Verify</h1>
-         <input type="text" title="password" name="password_verif" class="inputs" placeholder="password">
+        <form action="/dehash" method="post">
+         <input type="text" title="password" name="password_verif" class="inputs" {% if password_verif %} value={{password_verif}} {% else %} placeholder="password" {% endif %} >
         <br>
-        <textarea rows="10" cols="30" name="hash_verif" placeholder="hash"   id="hash_in"></textarea>
+        <textarea rows="10" cols="30" name="hash_verif" placeholder="hash"   id="hash_in">{% if hash %}{{hash}}{% endif %}</textarea>
         <br>
          <button class="btn">Verify It!</button>
+        </form>
         {% if status=="checked" %}
         <p class="message_green">It's a match!</p>
+        <a href="{{url_for('return_home')}}">Clear Fields</a>
         {% elif status=="failed" %}
         <p class="message_red">It doesn't match :(</p>
+        <a href="{{url_for('return_home')}}">Clear Fields</a>
         {% endif %}
+
     </div>
 </div>
 </body>
