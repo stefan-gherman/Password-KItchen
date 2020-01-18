@@ -1,5 +1,6 @@
 from flask import Flask, redirect, request, render_template, url_for
 import hasher
+
 app = Flask(__name__)
 
 
@@ -16,7 +17,8 @@ def hash_password():
         print(hashed_password)
         return render_template("index.html", status="default", show_hash=hashed_password, password=password)
 
-@app.route('/dehash', methods = ['GET', 'POST'])
+
+@app.route('/dehash', methods=['GET', 'POST'])
 def check_hash():
     if request.method == 'POST':
         password = request.form['password_verif']
@@ -24,7 +26,12 @@ def check_hash():
         truth = hasher.check_pw(password, hashed)
         if truth is True:
             return render_template("index.html", status="checked", hash=hashed, password_verif=password)
-        else:
+        elif truth is False:
             return render_template("index.html", status="failed", hash=hashed, password_verif=password)
+        elif truth == "Invalid":
+            return render_template("index.html", status="default", show_alert=True, hash=hashed,
+                                   password_verif=password)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
