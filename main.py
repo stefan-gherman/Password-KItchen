@@ -22,7 +22,6 @@ def check_hash():
         password = request.form['password_verif']
         hashed = request.form['hash_verif']
         truth = hasher.check_pw(password, hashed)
-        print(truth)
         if truth is True:
             return render_template("index.html", status="checked", hash=hashed, password_verif=password)
         else:
