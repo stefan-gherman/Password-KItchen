@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" >
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/styles.css')}}">
+    <title>Password Kitchen</title>
+</head>
+<body
+{% if status=="default" %} style="background-color: #1976d2;" {% elif status=="checked" %} style="background-color: #43a047" {% elif status=="failed" %} style="background-color: #e53935"
+{% endif %}>
+<header>
+ <h1 align="center">Password Kitchen</h1>
+    </header>
+<div class="main_container" >
+
+    <div id="card_box" >
+       <h1>Hash</h1>
+        <input type="text" title="password" name="password" class="inputs" placeholder="password">
+        <br>
+        <button class="btn">Hash It!</button>
+        <br>
+        <textarea rows="10" cols="30" name="hash" placeholder="hash"  disabled ></textarea>
+    </div>
+    <div id="card_box" >
+    <h1>Verify</h1>
+         <input type="text" title="password" name="password_verif" class="inputs" placeholder="password">
+        <br>
+        <textarea rows="10" cols="30" name="hash_verif" placeholder="hash"   id="hash_in"></textarea>
+        <br>
+         <button class="btn">Verify It!</button>
+        {% if status=="checked" %}
+        <p class="message_green">It's a match!</p>
+        {% elif status=="failed" %}
+        <p class="message_red">It doesn't match :(</p>
+        {% endif %}
+    </div>
+</div>
+</body>
+</html>
