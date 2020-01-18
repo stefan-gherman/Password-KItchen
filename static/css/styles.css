@@ -58,7 +58,11 @@ button,textarea,input:focus {
     resize: none;
 }
 
-button:hover{
+input[type="submit"]:hover{
+    background-color: #fff;
+    color: #01579b;
+}
+button:hover {
     background-color: #fff;
     color: #01579b;
 }
@@ -76,4 +80,14 @@ button:hover{
 }
 #hash_in {
     margin-top: 15px;
+}
+a {
+    text-decoration: none;
+    color:blue;
+    font-family: 'Montserrat';
+}
+a:visited {
+    color: blue;
+    text-decoration: none;
+    font-family: 'Montserrat';
 }
