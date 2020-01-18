@@ -15,11 +15,16 @@
 
     <div id="card_box" >
        <h1>Hash</h1>
-        <input type="text" title="password" name="password" class="inputs" placeholder="password">
+        <form action="/hash" method="post" >
+        <input type="text" title="password" name="password" class="inputs" {% if password %} value={{password}} {% else %} placeholder="password" {% endif %}>
         <br>
-        <button class="btn">Hash It!</button>
+            <button class="btn">Hash It!</button>
         <br>
-        <textarea rows="10" cols="30" name="hash" placeholder="hash"  disabled ></textarea>
+        <textarea rows="10" cols="30" name="hash" {% if show_hash %} placeholder={{show_hash}} {% else %} placeholder="hash" {% endif %}  disabled ></textarea>
+        </form>
+        {% if show_hash %}
+        <a href="{{url_for('return_home')}}">Clear Fields</a>
+        {% endif %}
     </div>
     <div id="card_box" >
     <h1>Verify</h1>
