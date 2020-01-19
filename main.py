@@ -1,4 +1,4 @@
-from flask import Flask, redirect, request, render_template, url_for
+from flask import Flask, redirect, request, render_template, url_for, make_response
 import hasher
 
 app = Flask(__name__)
@@ -7,6 +7,14 @@ app = Flask(__name__)
 @app.route('/', methods=['GET', 'POST'])
 def return_home():
     return render_template("index.html", status="default")
+
+
+@app.route('/bake_cookie')
+def cookie():
+    return_to_main = redirect('/')
+    make_cookie = make_response(return_to_main)
+    make_cookie.set_cookie("application", value="password_kitchen", max_age=20*60)
+    return make_cookie
 
 
 @app.route('/hash', methods=['GET', 'POST'])
