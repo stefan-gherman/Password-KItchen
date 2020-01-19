@@ -44,7 +44,7 @@
         <p class="message_green">It's a match!</p>
         <a href="{{url_for('return_home')}}">Clear Fields</a>
         {% elif status=="failed" %}
-        <p class="message_red">It doesn't match :(</p>
+        <p class="message_red">Doesn't match :(</p>
         <a href="{{url_for('return_home')}}">Clear Fields</a>
         {% endif %}
         {% if show_alert %}
