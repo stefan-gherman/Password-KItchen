@@ -25,7 +25,7 @@
         <br>
             <button class="btn">Hash It!</button>
         <br>
-        <textarea rows="10" cols="30" name="hash" {% if show_hash %} placeholder={{show_hash}} {% else %} placeholder="hash" {% endif %}  disabled  class="hash_in"></textarea>
+        <textarea rows="10" cols="22" name="hash" {% if show_hash %} placeholder={{show_hash}} {% else %} placeholder="hash" {% endif %}  disabled  class="hash_in"></textarea>
         </form>
         {% if show_hash %}
         <a href="{{url_for('return_home')}}">Clear Fields</a>
@@ -36,7 +36,7 @@
         <form action="/dehash" method="post">
          <input type="text" title="password" name="password_verif" class="inputs" {% if password_verif %} value={{password_verif}} {% else %} placeholder="password" {% endif %} >
         <br>
-        <textarea rows="10" cols="30" name="hash_verif" placeholder="hash"   class="hash_in">{% if hash %}{{hash}}{% endif %}</textarea>
+        <textarea rows="10" cols="22" name="hash_verif" placeholder="hash"   class="hash_in">{% if hash %}{{hash}}{% endif %}</textarea>
         <br>
          <button class="btn">Verify It!</button>
         </form>
